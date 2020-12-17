@@ -19,6 +19,7 @@ public class SistemasDistribuidos {
         System.out.println("Duogo");
         System.out.println("teste");
         System.out.println("Diogo");
+        System.out.println("TESTE");
     }
     
 }

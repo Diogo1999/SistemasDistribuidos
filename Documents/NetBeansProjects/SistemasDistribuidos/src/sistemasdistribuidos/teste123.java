@@ -11,4 +11,5 @@ package sistemasdistribuidos;
  */
 public class teste123 {
     int i = 5;
+    int d = 8;
 }

@@ -18,6 +18,7 @@ public class SistemasDistribuidos {
         // TODO code application logic here
         System.out.println("Duogo");
         System.out.println("teste");
+        System.out.println("Diogo");
     }
     
 }

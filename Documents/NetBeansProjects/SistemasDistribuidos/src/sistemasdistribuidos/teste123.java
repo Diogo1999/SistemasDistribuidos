@@ -13,4 +13,5 @@ public class teste123 {
     int i = 5;
     int d = 8;
     String c="SD";
+    String a = "ola";
 }

@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package Cliente;
+import java.rmi.registry.LocateRegistry;
+import Backend.*;
 
 /**
  *
@@ -16,6 +18,23 @@ public class Cliente {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        String SERVICE_NAME="/PresencesRemote";
+        
+        
+        try {
+
+			PedidosInterface presences = (PedidosInterface) LocateRegistry.getRegistry("127.0.0.1").lookup(SERVICE_NAME);
+                        System.out.println(presences.enviaConvite());
+                        
+			
+			
+	
+		} catch (Exception e) {
+			System.err.println("Error");
+			e.printStackTrace();
+		}
+        
+     
     }
     
 }

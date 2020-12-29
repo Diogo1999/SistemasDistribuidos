@@ -9,17 +9,21 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 
-/**
- *
- * @author diogo
- */
+
 public class Servidor {
     
+    static int DEFAULT_PORT = 8080;
+    //static Pedido pedido;
+    static Presences pedidos = null;
+    
     String SERVICE_NAME="/PresencesRemote";
-
-		private void bindRMI(Presences presences) throws RemoteException {
+    
+    static PedidosInterface stub;
+    
+		private void bindRMI(Presences pedidos) throws RemoteException {
 			
-			System.getProperties().put( "java.security.policy", "C:\\Users\\Diogo\\Documents\\NetBeansProjects\\SistemasDistribuidos\\Documents\\NetBeansProjects\\SistemasDistribuidos\\src\\Backend\\server.policy");
+			System.getProperties().put( "java.security.policy", "C:\\Users\\diana\\Documents\\NetBeansProjects\\SistemasDistribuidos\\Documents\\NetBeansProjects\\SistemasDistribuidos\\src\\Backend\\server.policy");
+                        
 
 			if( System.getSecurityManager() == null) {
 				System.setSecurityManager(new SecurityManager());
@@ -31,7 +35,7 @@ public class Servidor {
 				
 			}
 			try {
-			LocateRegistry.getRegistry("127.0.0.1",1099).rebind(SERVICE_NAME, presences);
+			LocateRegistry.getRegistry("127.0.0.1",1099).rebind(SERVICE_NAME, pedidos);
                         
 			} catch( RemoteException e) {
 				System.out.println("Registry not found" + e);
@@ -64,7 +68,7 @@ public class Servidor {
      * @param args the command line arguments
      */
     public static void main(String[] args){
-        // TODO code application logic here
+     int port = DEFAULT_PORT;
        Servidor s = new Servidor();
        s.createPresences();
         

@@ -5,16 +5,10 @@
  */
 package Backend;
 
-import java.rmi.Remote;
-import java.rmi.RemoteException;
 /**
  *
- * @author diogo
+ * @author Diogo
  */
-public interface PedidosInterface extends Remote {
-    
-    String enviaConvite(String ano) throws RemoteException;
-    
-    
+public class ListaClientes {
     
 }

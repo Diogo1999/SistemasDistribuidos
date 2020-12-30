@@ -7,16 +7,13 @@ package Cliente;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
-
 /**
  *
- * @author Diogo
+ * @author diogo
  */
 public interface PedidosInterface extends Remote {
     
-    public int enviaConvite() throws RemoteException;
-    public void aceitaConvite() throws RemoteException;
-    public void login() throws RemoteException;
+    String enviaConvite(String ano) throws RemoteException;
     
     
 }

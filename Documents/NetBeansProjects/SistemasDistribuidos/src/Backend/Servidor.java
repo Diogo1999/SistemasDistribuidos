@@ -5,6 +5,8 @@
  */
 package Backend;
 import java.lang.SecurityManager;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -14,15 +16,16 @@ public class Servidor {
     
     static int DEFAULT_PORT = 8080;
     //static Pedido pedido;
-    static Presences pedidos = null;
+    static Pedidos pedidos = null;
+    ServerSocket servidor;
     
     String SERVICE_NAME="/PresencesRemote";
     
     static PedidosInterface stub;
     
-		private void bindRMI(Presences pedidos) throws RemoteException {
+		private void bindRMI(Pedidos pedidos) throws RemoteException {
 			
-			System.getProperties().put( "java.security.policy", "C:\\Users\\diana\\Documents\\NetBeansProjects\\SistemasDistribuidos\\Documents\\NetBeansProjects\\SistemasDistribuidos\\src\\Backend\\server.policy");
+			System.getProperties().put( "java.security.policy", "C:\\Users\\Diogo\\Documents\\NetBeansProjects\\SistemasDistribuidos\\Documents\\NetBeansProjects\\SistemasDistribuidos\\src\\Backend\\server.policy");
                         
 
 			if( System.getSecurityManager() == null) {
@@ -48,9 +51,9 @@ public class Servidor {
 
         public void createPresences() {
 		
-		Presences presences = null;
+		Pedidos presences = null;
 		try {
-			presences = new Presences();
+			presences = new Pedidos();
 		} catch (RemoteException e1) {
 			System.err.println("unexpected error...");
 			e1.printStackTrace();
@@ -62,7 +65,22 @@ public class Servidor {
 			System.err.println("erro ao registar o stub...");
 			e1.printStackTrace();
 		}
-		
+		try{
+                servidor = new ServerSocket(DEFAULT_PORT);
+                System.out.println("Servidor na porta " + DEFAULT_PORT);
+                while(true){
+                Socket ligacao = servidor.accept();
+                System.out.println("Cliente conectado: " + ligacao.getInetAddress());
+                
+                
+                
+                }
+                
+                }catch(Exception e){
+                
+                
+                }
+                
 	}
     /**
      * @param args the command line arguments

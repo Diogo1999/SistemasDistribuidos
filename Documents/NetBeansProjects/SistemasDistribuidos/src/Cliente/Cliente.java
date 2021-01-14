@@ -84,6 +84,8 @@ public class Cliente {
     public static void main(String[] args) {
 
         Cliente cliente = new Cliente("ola");
+        Registo registo = new Registo();
+        registo.setVisible(true);
     }
 
     /*       public int enviaConvite() throws NotBoundException{

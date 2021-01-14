@@ -4,10 +4,17 @@
  * and open the template in the editor.
  */
 package Cliente;
-import Backend.clienteDados;
+import Backend.*;
+import static Cliente.Cliente.SERVICE_NAME;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.rmi.AccessException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JFrame;
 
@@ -23,6 +30,7 @@ public class Registo extends javax.swing.JFrame {
     BufferedReader in;
     PrintWriter out;
     Socket ligacao = null;
+    static String SERVICE_NAME = "/PresencesRemote";
     /**
      * Creates new form Registo
      */
@@ -249,7 +257,25 @@ public class Registo extends javax.swing.JFrame {
         String curso = field4.getText();
         String password = field3.getText();
         int port =  cliente.getPort();
-        clienteDados c = new clienteDados(nickname, email, curso, password, port, null, null);
+        clienteDados c1 = new clienteDados(nickname, email, curso, password, port, null, null);
+        /*
+        try {
+            PedidosInterface ola = (PedidosInterface) LocateRegistry.getRegistry("127.0.0.1").lookup(SERVICE_NAME);
+            
+            ola.getListaCliente().adicionarCliente(c1);
+            String nome = "Diogo";
+
+            
+            
+            
+        
+        } catch (NotBoundException ex) {
+            Logger.getLogger(Registo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (RemoteException ex) {
+            Logger.getLogger(Registo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        */
+        
         
         
         

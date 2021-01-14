@@ -7,6 +7,9 @@ package Backend;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import Backend.ListaClientes;
+import java.util.ArrayList;
+
 
 /**
  *
@@ -14,6 +17,7 @@ import java.rmi.server.UnicastRemoteObject;
  */
 public class Pedidos extends UnicastRemoteObject implements PedidosInterface{
     String ano;
+    ListaClientes listaC;
     
     public Pedidos() throws RemoteException {
 		super();
@@ -24,6 +28,15 @@ public class Pedidos extends UnicastRemoteObject implements PedidosInterface{
         this.ano = ano;
         return ano;
     }
+
+    @Override
+    public ListaClientes getListaCliente() throws RemoteException {
+       return listaC;
+    }
+
+   
+    
+    
 
   
 

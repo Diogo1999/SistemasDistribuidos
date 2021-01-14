@@ -7,13 +7,19 @@ package Backend;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
+
+
 /**
  *
  * @author diogo
  */
 public interface PedidosInterface extends Remote {
     
+    
     String enviaConvite(String ano) throws RemoteException;
+    
+    public ListaClientes getListaCliente() throws RemoteException;
     
     
     

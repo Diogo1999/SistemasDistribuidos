@@ -16,8 +16,8 @@ public class Servidor {
     
     static int DEFAULT_PORT = 8080;
     //static Pedido pedido;
-    static Pedidos pedidos = null;
     ServerSocket servidor;
+    Pedidos handler;
     
     String SERVICE_NAME="/PresencesRemote";
     
@@ -51,16 +51,16 @@ public class Servidor {
 
         public void createPresences() {
 		
-		Pedidos presences = null;
+		
 		try {
-			presences = new Pedidos();
+			handler = new Pedidos();
 		} catch (RemoteException e1) {
 			System.err.println("unexpected error...");
 			e1.printStackTrace();
 		}
 		
 		try {
-			bindRMI(presences);
+			bindRMI(handler);
 		} catch (RemoteException e1) {
 			System.err.println("erro ao registar o stub...");
 			e1.printStackTrace();

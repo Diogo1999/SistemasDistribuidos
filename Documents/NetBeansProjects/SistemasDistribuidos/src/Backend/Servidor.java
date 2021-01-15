@@ -15,7 +15,7 @@ import java.rmi.registry.LocateRegistry;
 public class Servidor {
     
     static int DEFAULT_PORT = 8080;
-    //static Pedido pedido;
+    static Pedidos pedido;
     ServerSocket servidor;
     Pedidos handler;
     
@@ -49,7 +49,7 @@ public class Servidor {
 		super();
 	}
 
-        public void createPresences() {
+        public void createLigacao() {
 		
 		
 		try {
@@ -88,7 +88,7 @@ public class Servidor {
     public static void main(String[] args){
      int port = DEFAULT_PORT;
        Servidor s = new Servidor();
-       s.createPresences();
+       s.createLigacao();
         
         
         

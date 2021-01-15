@@ -48,6 +48,7 @@ public class Cliente {
             System.err.println("Error");
             e.printStackTrace();
         }
+        // Cria um socket chamado ligacao e estabelece uma ligacao
         try {
             ligacao = new Socket(DEFAULT_HOST, port);
             System.out.println("ligacao ao servidor");
@@ -97,4 +98,16 @@ public class Cliente {
         
 }
      */
+    
+  public void enviarPedido(){
+     
+  }  
+  
+  public void enviarMensagem(){
+      
+  }
+  
+  public void aceitarPedido(){
+      
+  }
 }
